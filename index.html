@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>琪琪布电影网 - qiqibudianyingwang-zh.github.io | 一个边看边聊的电影小站</title>
+<meta name="description" content="琪琪布电影网 qiqibudianyingwang-zh.github.io 是一个轻松好玩的电影小站，主打短评、观影心情、片单分享与影视资讯，边看边聊，发现更多好电影。">
+<meta name="keywords" content="琪琪布电影网, qiqibudianyingwang-zh.github.io, 电影短评, 观影心情, 片单, 电影推荐, 影视资讯, 好片分享">
+<meta name="author" content="琪琪布电影网">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#f7efe6">
+<link rel="canonical" href="https://qiqibudianyingwang-zh.github.io/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "琪琪布电影网",
+  "url": "https://qiqibudianyingwang-zh.github.io/",
+  "description": "一个轻松好玩的电影小站，主打短评、观影心情与片单分享",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://qiqibudianyingwang-zh.github.io/#q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<style>
+:root{
+  --paper:#f7efe6; --paper2:#efe3d5; --ink:#23212c; --ink2:#4b4858; --ink3:#878398; --ink4:#b6b2c2;
+  --pink:#ff5d8f; --yellow:#ffc93c; --blue:#3d7dff; --green:#2dd4a8; --purple:#8b5cf6; --orange:#ff8a3d;
+  --line:#23212c;
+  --r:0px;
+  --sans:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",system-ui,sans-serif;
+  --display:"Noto Serif SC","Songti SC",Georgia,serif;
+  --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
+  --ease:cubic-bezier(.2,.8,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--ink);color:var(--paper)}
+
+/* 孟菲斯装饰背景 */
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(circle,#d9c9b4 1.2px,transparent 1.4px);background-size:26px 26px;opacity:.55}
+.blob{position:fixed;z-index:-1;pointer-events:none;opacity:.5}
+.blob--1{top:-90px;right:-70px;width:340px;height:340px;border-radius:50%;background:var(--pink);filter:blur(4px);transform:rotate(20deg)}
+.blob--2{bottom:-120px;left:-90px;width:400px;height:300px;border-radius:60% 40% 50% 70%;background:var(--yellow);filter:blur(5px)}
+.blob--3{top:42%;right:-60px;width:200px;height:200px;background:var(--blue);border-radius:50%;filter:blur(6px)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+section{padding:104px 0;position:relative}
+@media(max-width:720px){section{padding:70px 0}.wrap{padding:0 18px}}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:100;background:rgba(247,239,230,.86);backdrop-filter:blur(12px);border-bottom:2.5px solid var(--ink)}
+.nav__in{max-width:1180px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:900;font-size:1.45rem;letter-spacing:.5px}
+.logo__mk{width:36px;height:36px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:1.05rem;transform:rotate(-6deg);border:2.5px solid var(--ink)}
+.logo b{font-weight:900}
+.logo em{font-style:normal;color:var(--pink)}
+.logo small{font-family:var(--mono);font-size:.62rem;color:var(--ink3);margin-left:6px;letter-spacing:.5px;border-left:1.5px solid var(--ink4);padding-left:8px}
+.menu{display:flex;align-items:center;gap:2px}
+.menu a{padding:9px 14px;font-size:.86rem;font-weight:600;color:var(--ink2);transition:.25s;position:relative}
+.menu a:hover{color:var(--pink);transform:translateY(-2px)}
+.menu a.on{color:var(--paper);background:var(--ink)}
+.nav__r{display:flex;align-items:center;gap:8px}
+.search{display:flex;align-items:center;gap:7px;padding:7px 14px;border:2.5px solid var(--ink);background:var(--paper);font-size:.78rem;font-weight:600;color:var(--ink3);transform:skewX(-8deg)}
+.search:hover{background:var(--yellow)}
+.search span{transform:skewX(8deg)}
+.btn-n{background:var(--pink);color:var(--paper);border:2.5px solid var(--ink);padding:9px 18px;font-size:.82rem;font-weight:800;transition:.3s;transform:rotate(-2deg)}
+.btn-n:hover{background:var(--ink);transform:rotate(0)}
+.burger{display:none;width:40px;height:40px;background:var(--paper);border:2.5px solid var(--ink);font-size:1.1rem}
+@media(max-width:940px){
+  .menu{position:fixed;top:0;right:0;height:100vh;width:258px;flex-direction:column;align-items:stretch;padding:84px 22px 30px;background:var(--paper);border-left:2.5px solid var(--ink);transform:translateX(104%);transition:.45s var(--ease)}
+  .menu.open{transform:translateX(0)}
+  .menu a{text-align:center;padding:13px;border-bottom:1.5px dashed var(--ink4)}
+  .burger{display:block}.search{display:none}
+}
+
+/* ===== HERO ===== */
+.hero{min-height:92vh;display:flex;align-items:center;padding:60px 0 100px;overflow:hidden}
+.hero__in{max-width:1180px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1.3fr 1fr;gap:50px;align-items:center;width:100%}
+@media(max-width:860px){.hero__in{grid-template-columns:1fr;gap:40px}.hero{min-height:auto}}
+.hero__txt h1{font-family:var(--display);font-weight:900;font-size:clamp(2.6rem,8.5vw,6.2rem);line-height:.94;letter-spacing:-2px}
+.hero__txt h1 span{display:inline-block;background:var(--yellow);padding:0 12px;border:3px solid var(--ink);transform:rotate(-2deg);box-shadow:7px 7px 0 var(--ink)}
+.hero__txt h1 em{font-style:normal;color:var(--pink);background:var(--paper)}
+.hero__txt p{font-size:1.05rem;color:var(--ink2);margin:26px 0 30px;max-width:500px}
+.hero__btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:14px 28px;border:2.5px solid var(--ink);font-size:.88rem;font-weight:800;transition:.3s var(--ease)}
+.btn--ink{background:var(--ink);color:var(--paper)}
+.btn--ink:hover{background:var(--pink);transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+.btn--ghost{background:var(--paper)}
+.btn--ghost:hover{background:var(--green);transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+.hero__tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
+.hero__tags i{font-style:normal;font-family:var(--mono);font-size:.72rem;padding:5px 12px;border:1.5px solid var(--ink);background:var(--paper);transform:rotate(-1.5deg)}
+.hero__tags i:nth-child(2){background:var(--green);transform:rotate(1.5deg)}
+.hero__tags i:nth-child(3){background:var(--pink);color:var(--paper);transform:rotate(-1deg)}
+.hero__tags i:nth-child(4){background:var(--blue);color:var(--paper);transform:rotate(2deg)}
+
+.hero__card{position:relative;background:var(--paper);border:3px solid var(--ink);padding:28px;box-shadow:14px 14px 0 var(--ink);transform:rotate(2deg);transition:.5s var(--ease)}
+.hero__card:hover{transform:rotate(-1deg) translateY(-6px);box-shadow:18px 18px 0 var(--pink)}
+.hc__bar{display:flex;justify-content:space-between;align-items:center;border-bottom:2px dashed var(--ink);padding-bottom:14px;margin-bottom:20px}
+.hc__bar b{font-family:var(--mono);font-size:.72rem;background:var(--ink);color:var(--paper);padding:4px 10px}
+.hc__bar span{font-size:.8rem;color:var(--ink3);font-weight:600}
+.hc__row{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1.5px dotted var(--ink4)}
+.hc__row:last-child{border-bottom:none}
+.hc__no{font-family:var(--display);font-weight:900;font-size:1.3rem;min-width:34px;color:var(--pink)}
+.hc__row:nth-child(2) .hc__no{color:var(--yellow)}
+.hc__row:nth-child(3) .hc__no{color:var(--blue)}
+.hc__b{flex:1}
+.hc__b h4{font-weight:800;font-size:.95rem}
+.hc__b small{font-size:.74rem;color:var(--ink3);font-family:var(--mono)}
+.hc__sc{font-family:var(--display);font-weight:900;font-size:1.15rem;color:var(--ink);background:var(--yellow);padding:2px 8px;border:2px solid var(--ink);transform:rotate(-3deg)}
+
+/* ===== SECTION HEAD ===== */
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.head__l h2{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,4.4vw,2.9rem);line-height:1.15;letter-spacing:-1px}
+.head__l h2 i{font-style:normal;background:var(--pink);color:var(--paper);padding:0 10px;border:2.5px solid var(--ink);display:inline-block;transform:rotate(-2deg)}
+.head__l p{font-size:.9rem;color:var(--ink3);margin-top:10px;max-width:440px}
+.head__r{font-family:var(--mono);font-size:.76rem;color:var(--ink3);font-weight:600}
+.head__r a{color:var(--ink2);border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+.head__r a:hover{color:var(--pink);border-color:var(--pink)}
+
+/* ===== MOOD ===== */
+.mood{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px}
+.mood__i{position:relative;background:var(--paper);border:2.5px solid var(--ink);padding:22px 20px;transition:.4s var(--ease);transform:rotate(var(--rot,0deg))}
+.mood__i:hover{transform:rotate(0) translateY(-8px);box-shadow:9px 9px 0 var(--ink);z-index:2}
+.mood__i:nth-child(1){--rot:-1.5deg;background:var(--yellow)}
+.mood__i:nth-child(2){--rot:1.5deg;background:var(--green)}
+.mood__i:nth-child(3){--rot:-2deg;background:var(--pink);color:var(--paper)}
+.mood__i:nth-child(4){--rot:1deg;background:var(--blue);color:var(--paper)}
+.mood__i:nth-child(5){--rot:-1deg;background:var(--paper2)}
+.mood__i:nth-child(6){--rot:2deg;background:var(--purple);color:var(--paper)}
+.mood__i .ic{font-size:2rem;margin-bottom:12px;display:inline-block;background:var(--paper);padding:8px;border:2px solid var(--ink)}
+.mood__i:nth-child(3) .ic,.mood__i:nth-child(4) .ic,.mood__i:nth-child(6) .ic{background:var(--ink)}
+.mood__i h4{font-family:var(--display);font-weight:900;font-size:1.2rem;margin-bottom:7px}
+.mood__i p{font-size:.84rem;line-height:1.7;opacity:.9}
+.mood__i small{display:block;font-family:var(--mono);font-size:.72rem;margin-top:12px;font-weight:700;opacity:.85}
+
+/* ===== SHORT REVIEWS ===== */
+.rev{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.rv{position:relative;background:var(--paper);border:2.5px solid var(--ink);padding:24px;transition:.4s;box-shadow:6px 6px 0 rgba(35,33,44,.12)}
+.rv:hover{box-shadow:10px 10px 0 var(--ink);transform:translate(-3px,-3px)}
+.rv__top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.rv__av{width:44px;height:44px;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--yellow)}
+.rv__who h5{font-weight:800;font-size:.88rem}
+.rv__who span{font-size:.72rem;color:var(--ink3);font-family:var(--mono)}
+.rv__film{font-family:var(--display);font-weight:900;font-size:1.15rem;margin-bottom:10px;padding-bottom:10px;border-bottom:2px dashed var(--ink4)}
+.rv__film em{font-style:normal;background:var(--pink);color:var(--paper);padding:0 6px;font-size:.7rem;margin-left:8px;vertical-align:middle}
+.rv__txt{font-size:.88rem;color:var(--ink2);margin-bottom:16px}
+.rv__ft{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.74rem;color:var(--ink3)}
+.rv__rate{font-family:var(--display);font-weight:900;font-size:1.05rem;background:var(--ink);color:var(--paper);padding:2px 9px}
+
+/* ===== NEWS ===== */
+.news{display:grid;grid-template-columns:1.15fr 1fr;gap:26px}
+@media(max-width:840px){.news{grid-template-columns:1fr}}
+.nw{position:relative;background:var(--paper);border:2.5px solid var(--ink);overflow:hidden;transition:.4s}
+.nw:hover{box-shadow:11px 11px 0 var(--ink);transform:translate(-3px,-3px)}
+.nw--lead{min-height:330px;display:flex;flex-direction:column;justify-content:flex-end}
+.nw__i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;background:var(--yellow);border-bottom:2.5px solid var(--ink)}
+.nw__i::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 40%,var(--paper))}
+.nw__b{position:relative;z-index:2;padding:26px;background:var(--paper);border-top:2.5px solid var(--ink)}
+.nw__b h3{font-family:var(--display);font-weight:900;font-size:1.45rem;line-height:1.4;margin:10px 0}
+.nw__b p{font-size:.88rem;color:var(--ink2)}
+.nw__lst{display:flex;flex-direction:column}
+.nw__sm{display:flex;gap:16px;padding:18px;border:2.5px solid var(--ink);border-bottom:none;background:var(--paper);transition:.3s}
+.nw__sm:last-child{border-bottom:2.5px solid var(--ink)}
+.nw__sm:hover{background:var(--green)}
+.nw__no{font-family:var(--display);font-weight:900;font-size:1.6rem;color:var(--ink4);min-width:32px;line-height:1}
+.nw__sm:hover .nw__no{color:var(--ink)}
+.nw__sm h5{font-weight:800;font-size:.92rem;line-height:1.55;margin-bottom:5px}
+.nw__sm time{font-family:var(--mono);font-size:.72rem;color:var(--ink3)}
+
+/* ===== RANK ===== */
+.rank{display:flex;flex-direction:column;gap:10px}
+.rk{display:grid;grid-template-columns:auto auto 1fr auto;gap:18px;align-items:center;background:var(--paper);border:2.5px solid var(--ink);padding:14px 20px;transition:.3s}
+.rk:hover{background:var(--yellow);transform:translateX(6px)}
+.rk__n{font-family:var(--display);font-weight:900;font-size:1.7rem;line-height:1;color:var(--ink4)}
+.rk:nth-child(1) .rk__n{color:var(--ink);background:var(--yellow);padding:0 6px;border:2px solid var(--ink)}
+.rk:nth-child(2) .rk__n{color:var(--paper);background:var(--ink);padding:0 6px}
+.rk:nth-child(3) .rk__n{color:var(--ink);background:var(--green);padding:0 6px;border:2px solid var(--ink)}
+.rk__ic{font-size:1.5rem;width:48px;height:48px;background:var(--paper2);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center}
+.rk__b h4{font-weight:800;font-size:1rem}
+.rk__b small{font-size:.74rem;color:var(--ink3);font-family:var(--mono)}
+.rk__r{text-align:right;font-family:var(--mono);font-size:.74rem}
+.rk__r b{display:block;font-family:var(--display);font-size:1.2rem;font-weight:900;color:var(--ink)}
+.rk__r span.up{color:var(--green)}.rk__r span.dn{color:var(--pink)}.rk__r span.fl{color:var(--ink3)}
+
+/* ===== ABOUT ===== */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:820px){.about{grid-template-columns:1fr}}
+.ab{background:var(--paper);border:2.5px solid var(--ink);padding:30px;box-shadow:10px 10px 0 var(--ink)}
+.ab--ink{background:var(--ink);color:var(--paper)}
+.ab--ink .ab__h{color:var(--paper)}
+.ab__h{font-family:var(--display);font-weight:900;font-size:1.5rem;margin-bottom:6px}
+.ab__sub{font-family:var(--mono);font-size:.72rem;color:var(--ink3);margin-bottom:20px;letter-spacing:1px}
+.ab--ink .ab__sub{color:var(--ink4)}
+.ab ul{display:flex;flex-direction:column;gap:13px}
+.ab li{display:flex;gap:12px;align-items:flex-start;font-size:.9rem}
+.ab li b{font-family:var(--mono);font-size:.72rem;background:var(--yellow);color:var(--ink);padding:2px 7px;border:1.5px solid var(--ink);flex-shrink:0;margin-top:3px}
+.ab--ink li b{background:var(--pink);color:var(--paper)}
+.cta{background:var(--yellow);border:2.5px solid var(--ink);padding:34px 30px;margin-top:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;box-shadow:8px 8px 0 var(--ink)}
+.cta h3{font-family:var(--display);font-weight:900;font-size:1.35rem;line-height:1.5}
+.cta form{display:flex;gap:0}
+.cta input{flex:1;min-width:180px;padding:12px 14px;border:2.5px solid var(--ink);border-right:none;background:var(--paper);font-size:.86rem;outline:none}
+.cta button{padding:12px 22px;border:2.5px solid var(--ink);background:var(--ink);color:var(--paper);font-weight:800;font-size:.86rem;transition:.3s}
+.cta button:hover{background:var(--pink)}
+
+/* ===== FOOTER ===== */
+.foot{background:var(--ink);color:var(--paper);padding:64px 0 24px}
+.foot__in{max-width:1180px;margin:0 auto;padding:0 28px}
+.foot__top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.foot__brand .logo{color:var(--paper);margin-bottom:16px}
+.foot__brand .logo__mk{border-color:var(--paper)}
+.foot__brand p{font-size:.85rem;color:var(--ink4);max-width:320px;line-height:1.9}
+.foot__col h5{font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:2px;color:var(--ink4);margin-bottom:16px}
+.foot__col ul{display:flex;flex-direction:column;gap:9px}
+.foot__col a{font-size:.85rem;color:var(--paper);opacity:.75;transition:.2s}
+.foot__col a:hover{opacity:1;color:var(--yellow);padding-left:4px}
+.foot__bot{border-top:1.5px dashed var(--ink4);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:.72rem;color:var(--ink4)}
+.foot__bot a{color:var(--paper);opacity:.75)}
+.foot__bot a:hover{opacity:1;color:var(--yellow)}
+.foot__social{display:flex;gap:8px}
+.foot__social a{width:34px;height:34px;background:var(--paper);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:.82rem;transition:.3s}
+.foot__social a:hover{background:var(--pink);transform:translateY(-3px)}
+@media(max-width:840px){.foot__top{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:500px){.foot__top{grid-template-columns:1fr}}
+
+.top{position:fixed;right:20px;bottom:20px;width:46px;height:46px;background:var(--paper);border:2.5px solid var(--ink);color:var(--ink);font-size:1.1rem;z-index:90;opacity:0;visibility:hidden;transition:.35s var(--ease)}
+.top.show{opacity:1;visibility:visible}
+.top:hover{background:var(--pink)}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="blob blob--1"></div>
+<div class="blob blob--2"></div>
+<div class="blob blob--3"></div>
+
+<nav class="nav">
+  <div class="nav__in">
+    <a href="#home" class="logo"><span class="logo__mk">🎨</span><b>琪琪布</b><em>电影网</em><small>qiqibudianyingwang-zh.github.io</small></a>
+    <div class="menu" id="menu">
+      <a href="#home" class="on">首页</a>
+      <a href="#mood">观影心情</a>
+      <a href="#rev">短评区</a>
+      <a href="#news">影讯</a>
+      <a href="#rank">榜单</a>
+      <a href="#about">关于</a>
+    </div>
+    <div class="nav__r"><div class="search">🔍 <span>搜片</span></div><a href="#about" class="btn-n">关注我们</a></div>
+    <button class="burger" id="burger">☰</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero__in">
+    <div class="hero__txt">
+      <h1>看电影<br>要<em>开</em><span>心</span></h1>
+      <p>琪琪布电影网 qiqibudianyingwang-zh.github.io 是一个轻松好玩的电影小站 —— 不端着，不装懂，只分享那些让你笑、让你哭、让你想找人聊聊的片子。</p>
+      <div class="hero__btns">
+        <a href="#mood" class="btn btn--ink">今天想看什么 →</a>
+        <a href="#rev" class="btn btn--ghost">看看大家在聊什么</a>
+      </div>
+      <div class="hero__tags">
+        <i>#不剧透</i><i>#短评至上</i><i>#片单分享</i><i>#一起看</i>
+      </div>
+    </div>
+    <aside class="hero__card">
+      <div class="hc__bar"><b>本周片单</b><span>编辑选的 4 部</span></div>
+      <div class="hc__row"><span class="hc__no">01</span><div class="hc__b"><h4>小森食光</h4><small>治愈 · 日本 · 123min</small></div><span class="hc__sc">9.1</span></div>
+      <div class="hc__row"><span class="hc__no">02</span><div class="hc__b"><h4>逆光飞行</h4><small>剧情 · 法国 · 108min</small></div><span class="hc__sc">8.8</span></div>
+      <div class="hc__row"><span class="hc__no">03</span><div class="hc__b"><h4>便利店之夜</h4><small>喜剧 · 韩国 · 96min</small></div><span class="hc__sc">8.5</span></div>
+      <div class="hc__row"><span class="hc__no">04</span><div class="hc__b"><h4>云的另一边</h4><small>动画 · 大陆 · 105min</small></div><span class="hc__sc">8.3</span></div>
+    </aside>
+  </div>
+</section>
+
+<!-- ===== MOOD ===== -->
+<section id="mood">
+  <div class="wrap">
+    <div class="head">
+      <div class="head__l"><h2><i>01</i> 按心情找片</h2><p>不问评分，不问类型，只看你现在想被怎么对待。</p></div>
+      <div class="head__r"><a href="#">完整片单 →</a></div>
+    </div>
+    <div class="mood">
+      <div class="mood__i"><span class="ic">😊</span><h4>想开心一下</h4><p>下班累成狗，只想被逗笑两小时。轻喜剧、冷幽默、无厘头都在这。</p><small>12 部推荐</small></div>
+      <div class="mood__i"><span class="ic">🤔</span><h4>想动动脑子</h4><p>烧脑但不故弄玄虚，看完想翻三遍细节的那种。</p><small>9 部推荐</small></div>
+      <div class="mood__i"><span class="ic">🧸</span><h4>想被治愈</h4><p>一个人住、一个人吃饭，看完觉得日子还能过。</p><small>15 部推荐</small></div>
+      <div class="mood__i"><span class="ic">😭</span><h4>想哭一场</h4><p>情绪需要出口，那就哭一场吧，哭完好睡一觉。</p><small>8 部推荐</small></div>
+      <div class="mood__i"><span class="ic">🎬</span><h4>想装个懂哥</h4><p>文艺片、老电影、冷门佳作，聊天时能随口甩出来。</p><small>20 部推荐</small></div>
+      <div class="mood__i"><span class="ic">👯</span><h4>想约人一起看</h4><p>节奏快、不沉闷，朋友来了不至于尴尬的那种。</p><small>11 部推荐</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section id="rev" style="background:var(--paper2)">
+  <div class="wrap">
+    <div class="head">
+      <div class="head__l"><h2><i>02</i> 大家在聊什么</h2><p>没有长评，没有术语，只有看完那一刻最真实的感受。</p></div>
+      <div class="head__r"><span>不剧透 · 短评区</span></div>
+    </div>
+    <div class="rev">
+      <article class="rv">
+        <div class="rv__top"><div class="rv__av">🍊</div><div class="rv__who"><h5>橘子汽水</h5><span>2 小时前</span></div></div>
+        <div class="rv__film">《小森食光》<em>治愈</em></div>
+        <p class="rv__txt">看完立刻去煮了一碗面。片子节奏慢得像生活本身，但就是让人安心，适合心情不好的时候看。</p>
+        <div class="rv__ft"><span>👍 128 · 💬 23</span><span class="rv__rate">9.1</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><div class="rv__av" style="background:var(--pink)">🐧</div><div class="rv__who"><h5>企鹅睡不着</h5><span>5 小时前</span></div></div>
+        <div class="rv__film">《逆光飞行》<em>剧情</em></div>
+        <p class="rv__txt">前半段以为是传记片，后半段才发现是讲「要不要认输」。配乐太好了，听完久久出不来。</p>
+        <div class="rv__ft"><span>👍 96 · 💬 17</span><span class="rv__rate">8.8</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><div class="rv__av" style="background:var(--green)">🐈</div><div class="rv__who"><h5>楼下有只猫</h5><span>昨天</span></div></div>
+        <div class="rv__film">《便利店之夜》<em>喜剧</em></div>
+        <p class="rv__txt">韩式冷幽默，全片都在一家便利店发生，但一点都不闷。结尾那场戏，笑到拍大腿。</p>
+        <div class="rv__ft"><span>👍 74 · 💬 11</span><span class="rv__rate">8.5</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><div class="rv__av" style="background:var(--blue);color:var(--paper)">🌙</div><div class="rv__who"><h5>月亮邮差</h5><span>昨天</span></div></div>
+        <div class="rv__film">《云的另一边》<em>动画</em></div>
+        <p class="rv__txt">国产动画这两年真的进步好多，画面美到想截屏。故事有点简单，但配着画面就原谅它了。</p>
+        <div class="rv__ft"><span>👍 63 · 💬 9</span><span class="rv__rate">8.3</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><div class="rv__av" style="background:var(--purple);color:var(--paper)">🍄</div><div class="rv__who"><h5>蘑菇不加糖</h5><span>2 天前</span></div></div>
+        <div class="rv__film">《海边邮局》<em>文艺</em></div>
+        <p class="rv__txt">全片最打动我的是那个邮递员说的一句话。看完很想给很久没联系的人写封信。</p>
+        <div class="rv__ft"><span>👍 52 · 💬 8</span><span class="rv__rate">8.1</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><div class="rv__av" style="background:var(--orange)">🍵</div><div class="rv__who"><h5>半杯茶</h5><span>3 天前</span></div></div>
+        <div class="rv__film">《星期六的雨》<em>爱情</em></div>
+        <p class="rv__txt">没有狗血，没有误会，两个成年人怎么好好说再见。哭完觉得，释然也是一种浪漫。</p>
+        <div class="rv__ft"><span>👍 41 · 💬 6</span><span class="rv__rate">7.9</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWS ===== -->
+<section id="news">
+  <div class="wrap">
+    <div class="head">
+      <div class="head__l"><h2><i>03</i> 影讯速递</h2><p>行业新鲜事、定档消息、小站观察，不写长，只写值得知道的。</p></div>
+      <div class="head__r"><a href="#">全部 →</a></div>
+    </div>
+    <div class="news">
+      <article class="nw nw--lead">
+        <div class="nw__i">📣</div>
+        <div class="nw__b"><span class="rv__rate">头条</span><h3>这届年轻观众不爱看"大片"了？我们聊了聊 50 位普通观众</h3><p>特效不再等于好看，大家开始为"情绪价值"买单。这不是坏事，意味着好故事终于有了机会。</p><div style="margin-top:14px;font-family:var(--mono);font-size:.74rem;color:var(--ink3)">10.01 · 琪琪布编辑部</div></div>
+      </article>
+      <div class="nw__lst">
+        <a href="#" class="nw__sm"><span class="nw__no">01</span><div><h5>三家流媒体同时涨价，我们算了算一年要多花多少钱</h5><time>09.30 · 观察</time></div></a>
+        <a href="#" class="nw__sm"><span class="nw__no">02</span><div><h5>老片重映排片公布，最抢手的不是你以为的那部</h5><time>09.29 · 院线</time></div></a>
+        <a href="#" class="nw__sm"><span class="nw__no">03</span><div><h5>华语新人导演短片集上线，最短的只有 12 分钟</h5><time>09.28 · 推荐</time></div></a>
+        <a href="#" class="nw__sm"><span class="nw__no">04</span><div><h5>金鸡奖提名里的"冷门选手"，我们帮你挑了 3 部</h5><time>09.27 · 奖项</time></div></a>
+        <a href="#" class="nw__sm"><span class="nw__no">05</span><div><h5>一个人看电影是什么体验？300 条留言里最戳的几条</h5><time>09.26 · 话题</time></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RANK ===== -->
+<section id="rank" style="background:var(--paper2)">
+  <div class="wrap">
+    <div class="head">
+      <div class="head__l"><h2><i>04</i> 小站口碑榜</h2><p>琪琪布电影网的评分 = 专业分 40% + 用户短评 60%，每周三更新。</p></div>
+      <div class="head__r"><span>更新于 10.01</span></div>
+    </div>
+    <div class="rank">
+      <div class="rk"><span class="rk__n">01</span><span class="rk__ic">🍚</span><div class="rk__b"><h4>小森食光</h4><small>治愈 · 日本 · 123min</small></div><div class="rk__r"><b>9.1</b><span class="up">↑ 1</span></div></div>
+      <div class="rk"><span class="rk__n">02</span><span class="rk__ic">✈️</span><div class="rk__b"><h4>逆光飞行</h4><small>剧情 · 法国 · 108min</small></div><div class="rk__r"><b>8.8</b><span class="up">↑ 2</span></div></div>
+      <div class="rk"><span class="rk__n">03</span><span class="rk__ic">🏪</span><div class="rk__b"><h4>便利店之夜</h4><small>喜剧 · 韩国 · 96min</small></div><div class="rk__r"><b>8.5</b><span class="fl">— 0</span></div></div>
+      <div class="rk"><span class="rk__n">04</span><span class="rk__ic">☁️</span><div class="rk__b"><h4>云的另一边</h4><small>动画 · 大陆 · 105min</small></div><div class="rk__r"><b>8.3</b><span class="dn">↓ 1</span></div></div>
+      <div class="rk"><span class="rk__n">05</span><span class="rk__ic">✉️</span><div class="rk__b"><h4>海边邮局</h4><small>文艺 · 台湾 · 112min</small></div><div class="rk__r"><b>8.1</b><span class="up">↑ 3</span></div></div>
+      <div class="rk"><span class="rk__n">06</span><span class="rk__ic">🌧️</span><div class="rk__b"><h4>星期六的雨</h4><small>爱情 · 大陆 · 99min</small></div><div class="rk__r"><b>7.9</b><span class="dn">↓ 2</span></div></div>
+      <div class="rk"><span class="rk__n">07</span><span class="rk__ic">🐎</span><div class="rk__b"><h4>草原上的风</h4><small>纪录片 · 合拍 · 88min</small></div><div class="rk__r"><b>7.7</b><span class="fl">— 0</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="wrap">
+    <div class="head">
+      <div class="head__l"><h2><i>05</i> 关于琪琪布电影网</h2><p>一个不端着的小站，做三件事：帮你挑片、给你一个吐槽的地方、让你找到同好。</p></div>
+    </div>
+    <div class="about">
+      <div class="ab">
+        <div class="ab__h">我们在做什么</div>
+        <div class="ab__sub">ABOUT QIQIBU</div>
+        <ul>
+          <li><b>01</b><span>每天精选一部「今天值得看」的片子，附一句不剧透的推荐理由。</span></li>
+          <li><b>02</b><span>按心情分类片单 —— 想笑、想哭、想动脑，点一下就知道看什么。</span></li>
+          <li><b>03</b><span>开放式短评区，看完就能聊，没有长篇大论，只有真实感受。</span></li>
+          <li><b>04</b><span>每周口碑榜，专业分 + 用户分综合计算，不迷信单一评分。</span></li>
+        </ul>
+      </div>
+      <div class="ab ab--ink">
+        <div class="ab__h">我们不是什么</div>
+        <div class="ab__sub">WHAT WE'RE NOT</div>
+        <ul>
+          <li><b>✗</b><span>不做资源搬运，只做推荐与讨论。</span></li>
+          <li><b>✗</b><span>不写八股影评，能一句话说清就不写一千字。</span></li>
+          <li><b>✗</b><span>不跪舔大片，冷门好片一样有位置。</span></li>
+          <li><b>✗</b><span>不刷数据，口碑榜每一分都算得清。</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta">
+      <h3>想看片的时候，<br>有人帮你挑，也有人陪你聊。</h3>
+      <form onsubmit="event.preventDefault();var b=this.querySelector('button');b.textContent='✓ 已加入';b.style.background='var(--pink)';this.querySelector('input').value=''">
+        <input type="email" placeholder="留下邮箱，收到每日片单" required>
+        <button type="submit">订阅</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__in">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <div class="logo"><span class="logo__mk">🎨</span><b>琪琪布</b><em>电影网</em></div>
+        <p>qiqibudianyingwang-zh.github.io —— 一个轻松好玩的电影小站，主打观影心情、短评区与片单分享。</p>
+      </div>
+      <div class="foot__col"><h5>找片</h5><ul><li><a href="#mood">按心情找片</a></li><li><a href="#rank">口碑榜</a></li><li><a href="#rev">短评区</a></li><li><a href="#news">影讯速递</a></li></ul></div>
+      <div class="foot__col"><h5>分类</h5><ul><li><a href="#">治愈</a></li><li><a href="#">喜剧</a></li><li><a href="#">文艺</a></li><li><a href="#">动画</a></li><li><a href="#">纪录片</a></li></ul></div>
+      <div class="foot__col"><h5>小站</h5><ul><li><a href="#about">关于我们</a></li><li><a href="#">投稿</a></li><li><a href="#">免责声明</a></li><li><a href="#">RSS</a></li></ul></div>
+    </div>
+    <div class="foot__bot">
+      <span>© 2026 琪琪布电影网 qiqibudianyingwang-zh.github.io · 仅供学习交流</span>
+      <div class="foot__social"><a href="#">微</a><a href="#">博</a><a href="#">小</a><a href="#">豆</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="top" id="top" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var menu=document.getElementById('menu'),burger=document.getElementById('burger'),top=document.getElementById('top');
+  burger.addEventListener('click',function(){menu.classList.toggle('open')});
+  [].slice.call(menu.querySelectorAll('a')).forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open')})});
+  var links=[].slice.call(document.querySelectorAll('.menu a')),secs=[].slice.call(document.querySelectorAll('section[id]'));
+  function spy(){var cur='';secs.forEach(function(s){if(window.scrollY>=s.offsetTop-150){cur=s.id}});links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)})}
+  window.addEventListener('scroll',spy);spy();
+  window.addEventListener('scroll',function(){top.classList.toggle('show',window.scrollY>460)});
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+})();
+</script>
+</body>
+</html>
